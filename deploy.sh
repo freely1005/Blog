@@ -4,19 +4,19 @@
 set -e
 
 # 生成静态文件
-npm run view:build
+npm run views:build
 
 # 进入生成的文件夹
-cd vuew/.vuepress/dist
+cd views/.vuepress/dist
 
 # 如果是发布到自定义域名
-echo 'http://freely1005.github.io' > CNAME
+#echo 'http://freely1005.github.io' > CNAME
 
 git init
 git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io
-git push -f git@github.com:freely1005/Blog.git master
+git push -f git@github.com:freely1005/freely1005.github.io.git master
 
 cd -

@@ -1,0 +1,24 @@
+{
+  "name": "freely1005.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "views:dev": "vuepress dev views",
+    "views:build": "vuepress build views"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freely1005/freely1005.github.io.git"
+  },
+  "author": "freely",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/freely1005/freely1005.github.io/issues"
+  },
+  "homepage": "https://github.com/freely1005/freely1005.github.io#readme",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}

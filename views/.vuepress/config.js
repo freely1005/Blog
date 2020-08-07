@@ -15,8 +15,8 @@ module.exports = {
             {
                 title: 'Java',
                 path: '/java/',
-                collapsable: false,
-                sidebarDepth: 2,
+                collapsable: true,
+                sidebarDepth: 5,
                 children: [
                     '/java/java-1',
                     '/java/java-2'
