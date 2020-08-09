@@ -1,24 +1,24 @@
 {
-  "name": "freely1005.github.io",
+  "name": "afternoon-grocery-store",
   "version": "1.0.0",
-  "description": "",
+  "description": "recoluan's blog",
   "main": "index.js",
+  "repository": "http://recoluan.gitlab.io",
+  "author": "reco_luan",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "views:dev": "vuepress dev views",
-    "views:build": "vuepress build views"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/freely1005/freely1005.github.io.git"
+  "dependencies": {
+    "vuepress": "1.5.2",
+    "vuepress-theme-reco": "1.5.3",
+    "@vuepress/plugin-medium-zoom": "1.5.2",
+    "vuepress-plugin-flowchart": "1.4.3",
+    "@vuepress/plugin-pwa": "1.5.2"
   },
-  "author": "freely",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/freely1005/freely1005.github.io/issues"
-  },
-  "homepage": "https://github.com/freely1005/freely1005.github.io#readme",
   "devDependencies": {
-    "vuepress": "^1.5.3"
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5"
   }
 }

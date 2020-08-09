@@ -4,10 +4,10 @@
 set -e
 
 # 生成静态文件
-npm run views:build
+vuepress build docs
 
 # 进入生成的文件夹
-cd views/.vuepress/dist
+cd public
 
 # 如果是发布到自定义域名
 #echo 'http://freely1005.github.io' > CNAME
