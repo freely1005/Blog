@@ -30,7 +30,7 @@ vue create unit-test
 
 ### 1.安装相关依赖
 
-```
+``` js
 npm install --save-dev karma karma-chrome-launcher karma-mocha karma-sourcemap-loader karma-spec-reporter karma-webpack
 ```
 

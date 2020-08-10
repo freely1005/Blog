@@ -16,7 +16,7 @@ categories:
 # 使用IDEA的Run Dashboard来运行SpringCloud应用
 - win系统 可以点击 view——tool windows——Run Dashboard
 - mac系统 需要打开.idea——workspacs.xml文件
-```
+``` xml
 <component name="RunDashboard"> 
     <option name="configurationTypes">
         <set> 

@@ -5,12 +5,12 @@ sidebar: auto
 tags: 
  - 微服务
 categories:
- - spring
+ - 后端
 ---
 
 > 本文主要介绍springCloud 注册中心eureka的使用
 >
-> spring是每个java后端必须的技术
+> 微服务是每个java后端必须的技术
 
 ## 搭建Eureka注册中心
 > 这里我们以创建并运行Eureka注册中心来看看在IDEA中创建并运行SpringCloud应用的正确姿势。
@@ -22,7 +22,7 @@ categories:
 ![](https://user-gold-cdn.xitu.io/2019/9/11/16d1fe277f7412c1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 - 创建完成后会发现pom.xml文件中已经有了eureka-server的依赖
-```
+``` xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -30,7 +30,7 @@ categories:
 ```
 
 - 在启动类上添加@EnableEurekaServer注解来启用Euerka注册中心功能
-```
+``` java
 @EnableEurekaServer
 @SpringBootApplication
 public class EurekaServerApplication {
@@ -40,7 +40,7 @@ public class EurekaServerApplication {
 }
 ```
 - 在配置文件application.yml中添加Eureka注册中心的配置
-```
+``` yaml
 server:
   port: 8001 #指定运行端口
 spring:
@@ -60,7 +60,7 @@ eureka:
 
 ## 搭建Eureka客户端
 - 新建一个eureka-client模块，并在pom.xml中添加如下依赖
-```
+``` xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -72,7 +72,7 @@ eureka:
 </dependency>
 ```
 - 在启动类上添加@EnableDiscoveryClient注解表明是一个Eureka客户端
-```
+``` java
 @EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaClientApplication {
@@ -82,7 +82,7 @@ public class EurekaClientApplication {
 }
 ```
 - 在配置文件application.yml中添加Eureka客户端的配置
-```
+``` yaml
 server:
   port: 8101 #运行端口号
 spring:
@@ -97,12 +97,12 @@ eureka:
 ```
 - 运行eureka-client
 
-![](https://freely1005.github.io/images/spring/eureka.png)
+![](https://freely1005.github.io/images/cloud/eureka.png)
 
 - 查看注册中心http://localhost:8001/发现Eureka客户端已经成功注册
 
 
-![](https://freely1005.github.io/images/spring/eureka-client.png)
+![](https://freely1005.github.io/images/cloud/eureka-client.png)
 
 ### 搭建Eureka注册中心集群
 
@@ -112,7 +112,7 @@ eureka:
 >下面将搭建一个双节点的注册中心集群。
 
 - 给eureka-sever添加配置文件application-replica1.yml配置第一个注册中心
-```
+``` yaml
 server:
   port: 8002
 spring:
@@ -129,7 +129,7 @@ eureka:
 ```
 
 - 给eureka-sever添加配置文件application-replica2.yml配置第一个注册中心
-```
+``` yaml
 server:
   port: 8003
 spring:
@@ -161,7 +161,7 @@ eureka:
 
 - 修改Eureka-client，让其连接到集群
 > 添加eureka-client的配置文件application-replica.yml，让其同时注册到两个注册中心。
-```
+``` yaml
 server:
   port: 8102
 spring:
@@ -179,7 +179,7 @@ eureka:
 ## 给Eureka注册中心添加认证
 ### 创建一个eureka-security-server模块，在pom.xml中添加以下依赖
 > 需要添加SpringSecurity模块。
-```
+``` xml
 <dependency>
      <groupId>org.springframework.cloud</groupId>
      <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
@@ -192,7 +192,7 @@ eureka:
 ```
 ### 添加application.yml配置文件
 > 主要是配置了登录注册中心的用户名和密码。
-```
+``` yaml
 server:
    port: 8004
  spring:
@@ -213,7 +213,7 @@ server:
 ### 添加Java配置WebSecurityConfig
 > 默认情况下添加SpringSecurity依赖的应用每个请求都需要添加CSRF token才能访问，
 > Eureka客户端注册时并不会添加，所以需要配置/eureka/**路径不需要CSRF token。
-```
+``` java
 @EnableWebSecurity
  public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
@@ -234,7 +234,7 @@ server:
 >http://${username}:${password}@${hostname}:${port}/eureka/
 
 - 添加application-security.yml配置文件，按格式修改用户名和密码
-```
+``` yaml
 server:
   port: 8103
 spring:
@@ -250,7 +250,7 @@ eureka:
 - 以application-security.yml配置运行eureka-client，可以在注册中心界面看到eureka-client已经成功注册
 
 ## Eureka的常用配置
-```
+``` yaml
 eureka:
   client: #eureka客户端配置
     register-with-eureka: true #是否将自己注册到eureka服务端上去
