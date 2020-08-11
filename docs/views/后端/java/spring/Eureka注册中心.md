@@ -8,9 +8,11 @@ categories:
  - 后端
 ---
 
-> 本文主要介绍springCloud 注册中心eureka的使用
->
-> 微服务是每个java后端必须的技术
+::: tip Sping Cloud 微服务
+本文主要介绍springCloud 注册中心eureka的使用
+微服务是每个java后端必须的技术
+:::
+<!-- more -->
 
 ## 搭建Eureka注册中心
 > 这里我们以创建并运行Eureka注册中心来看看在IDEA中创建并运行SpringCloud应用的正确姿势。
@@ -269,3 +271,6 @@ eureka:
   server: #eureka服务端配置
     enable-self-preservation: false #关闭eureka服务端的保护机制
 ```
+
+## 项目源码地址
+[https://github.com/freely1005.....](https://github.com/freely1005/cs-cloud.git)
